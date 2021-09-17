@@ -155,7 +155,8 @@
           88 WS-RANK-SF-CMD         VALUE 'Commander, Star Fleet    '.
 
        01 WS-RANK-NAME              PIC  X(55)  VALUE SPACES.
-       01 WS-DIFFICULTY-FACTOR      PIC  9(03)  VALUE ZEROES.
+       01 WS-DIFFICULTY-FACTOR      PIC  9(02)  VALUE ZEROES.
+       01 WS-DIFFICULTY-FACTOR-SQD  PIC  9(04)  VALUE ZEROES.
 
        01 WS-SECTOR-ITEMS           PIC  X(01)  VALUE SPACES.
           88 WS-IS-ANOMALLY         VALUE '.'.
@@ -536,8 +537,12 @@
 
            COMPUTE WS-DIFFICULTY-FACTOR =
                  ((WS-RANK-CHOICES + 1) * 2) + 4.
+           COMPUTE WS-DIFFICULTY-FACTOR-SQD =
+                   WS-DIFFICULTY-FACTOR * WS-DIFFICULTY-FACTOR.
 
-      D    DISPLAY WS-DIFFICULTY-FACTOR.
+      D    DISPLAY "WS-DIFFICULTY-FACTOR->" WS-DIFFICULTY-FACTOR.
+      D    DISPLAY "WS-DIFFICULTY-FACTOR-SQD->"
+      D             WS-DIFFICULTY-FACTOR-SQD.
 
        1010-END.
            EXIT.
@@ -691,8 +696,63 @@
 
       D      DISPLAY WS-QUAD-CTR "WS-ITEM-COUNTER-> "
                      WS-ITEM-COUNTER
+
+      D      DISPLAY WS-QUAD-CTR
+      D              "WS-IS-ANOMALLY-CTR->"   WS-IS-ANOMALLY-CTR
+      D              "WS-IS-ASTEROID-CTR->"   WS-IS-ASTEROID-CTR
+      D              "WS-IS-BLACK-HOLE-CTR->" WS-IS-BLACK-HOLE-CTR
+      D              "WS-IS-BORG-CTR->"       WS-IS-BORG-CTR
+      D              "WS-IS-CARD-CTR->"       WS-IS-CARD-CTR
+      D              "WS-IS-COMET-CTR->"      WS-IS-COMET-CTR
+      D              "WS-IS-ENEMY-1-CTR->"    WS-IS-ENEMY-1-CTR
+      D              "WS-IS-ENEMY-2-CTR->"    WS-IS-ENEMY-2-CTR
+      D              "WS-IS-FERI-CTR->"       WS-IS-FERI-CTR
+      D              "WS-IS-KLINGON-CTR->"    WS-IS-KLINGON-CTR
+      D              "WS-IS-KOBIASHI-CTR->"   WS-IS-KOBIASHI-CTR
+      D              "WS-IS-MOON-CTR->"       WS-IS-MOON-CTR
+      D              "WS-IS-NEXUS-CTR->"      WS-IS-NEXUS-CTR
+      D              "WS-IS-NOVA-CTR->"       WS-IS-NOVA-CTR
+      D              "WS-IS-PLANET-CTR->"     WS-IS-PLANET-CTR
+      D              "WS-IS-Q-CTR->"          WS-IS-Q-CTR
+      D              "WS-IS-ROMULAN-CTR->"    WS-IS-ROMULAN-CTR
+      D              "WS-IS-STAR-CTR->"       WS-IS-STAR-CTR
+      D              "WS-IS-STAR-BASE-CTR->"  WS-IS-STAR-BASE-CTR
+      D              "WS-IS-STAR-SHIP-CTR->"  WS-IS-STAR-SHIP-CTR
+      D              "WS-IS-SUPER-NOVA-CTR->" WS-IS-SUPER-NOVA-CTR
+      D              "WS-IS-UNKNOWN-CTR->"    WS-IS-UNKNOWN-CTR
+      D              "WS-IS-VGER-CTR->"       WS-IS-VGER-CTR
+      D              "WS-IS-VULCAN-CTR->"     WS-IS-VULCAN-CTR
+      D              "WS-IS-WORM-HOLE-CTR->"  WS-IS-WORM-HOLE-CTR
+
       D      DISPLAY WS-QUAD-CTR "WS-ITEM-MAX-COUNTER-> "
-                     WS-ITEM-MAX-COUNTER
+      D              WS-ITEM-MAX-COUNTER
+
+      D      DISPLAY WS-QUAD-CTR
+      D              "WS-IS-ANOMALLY-MAX->"   WS-IS-ANOMALLY-MAX
+      D              "WS-IS-ASTEROID-MAX->"   WS-IS-ASTEROID-MAX
+      D              "WS-IS-BLACK-HOLE-MAX->" WS-IS-BLACK-HOLE-MAX
+      D              "WS-IS-BORG-MAX->"       WS-IS-BORG-MAX
+      D              "WS-IS-CARD-MAX->"       WS-IS-CARD-MAX
+      D              "WS-IS-COMET-MAX->"      WS-IS-COMET-MAX
+      D              "WS-IS-ENEMY-1-MAX->"    WS-IS-ENEMY-1-MAX
+      D              "WS-IS-ENEMY-2-MAX->"    WS-IS-ENEMY-2-MAX
+      D              "WS-IS-FERI-MAX->"       WS-IS-FERI-MAX
+      D              "WS-IS-KLINGON-MAX->"    WS-IS-KLINGON-MAX
+      D              "WS-IS-KOBIASHI-MAX->"   WS-IS-KOBIASHI-MAX
+      D              "WS-IS-MOON-MAX->"       WS-IS-MOON-MAX
+      D              "WS-IS-NEXUS-MAX->"      WS-IS-NEXUS-MAX
+      D              "WS-IS-NOVA-MAX->"       WS-IS-NOVA-MAX
+      D              "WS-IS-PLANET-MAX->"     WS-IS-PLANET-MAX
+      D              "WS-IS-Q-MAX->"          WS-IS-Q-MAX
+      D              "WS-IS-ROMULAN-MAX->"    WS-IS-ROMULAN-MAX
+      D              "WS-IS-STAR-MAX->"       WS-IS-STAR-MAX
+      D              "WS-IS-STAR-BASE-MAX->"  WS-IS-STAR-BASE-MAX
+      D              "WS-IS-STAR-SHIP-MAX->"  WS-IS-STAR-SHIP-MAX
+      D              "WS-IS-SUPER-NOVA-MAX->" WS-IS-SUPER-NOVA-MAX
+      D              "WS-IS-UNKNOWN-MAX->"    WS-IS-UNKNOWN-MAX
+      D              "WS-IS-VGER-MAX->"       WS-IS-VGER-MAX
+      D              "WS-IS-VULCAN-MAX->"     WS-IS-VULCAN-MAX
+      D              "WS-IS-WORM-HOLE-MAX->"  WS-IS-WORM-HOLE-MAX
 
            END-PERFORM.
 
@@ -710,53 +770,78 @@
               MOVE 1 TO WS-IS-KOBIASHI-MAX
            END-IF.
 
-           COMPUTE WS-IS-ANOMALLY-MAX =   WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-ASTEROID-MAX =   WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-BLACK-HOLE-MAX = WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-BORG-MAX =       WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-CARD-MAX =       WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-COMET-MAX =      WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-ENEMY-1-MAX =    WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-ENEMY-2-MAX =    WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-FERI-MAX =       WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-KLINGON-MAX =    WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-MOON-MAX =       WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-NEXUS-MAX =      WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-NOVA-MAX =       WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-PLANET-MAX =     WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-ROMULAN-MAX =    WS-IS-ROMULAN-MAX *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-STAR-MAX   =     WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-STAR-BASE-MAX =  WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-STAR-SHIP-MAX =  WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-SUPER-NOVA-MAX = WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-UNKNOWN-MAX =    WS-IS-UNKNOWN-MAX *
-                                          WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-VGER-MAX =       WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-VULCAN-MAX =     WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
-           COMPUTE WS-IS-WORM-HOLE-MAX =  WS-DIFFICULTY-FACTOR *
-                                          FUNCTION RANDOM + 1.
+           COMPUTE WS-IS-ANOMALLY-MAX   = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 50 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-ASTEROID-MAX   = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 10 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-BLACK-HOLE-MAX = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 25 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-BORG-MAX       = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-CARD-MAX       = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-COMET-MAX      = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 75 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-ENEMY-1-MAX    = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-ENEMY-2-MAX    = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-FERI-MAX       = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-KLINGON-MAX    = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-MOON-MAX       = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 4 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-NEXUS-MAX      = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 1500 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-NOVA-MAX       = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 500 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-PLANET-MAX     = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM * 2 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-Q-MAX          = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-ROMULAN-MAX    = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-STAR-MAX       = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 2 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-STAR-BASE-MAX  = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-STAR-SHIP-MAX  = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-SUPER-NOVA-MAX = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM /750 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-UNKNOWN-MAX    = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 1000 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-VGER-MAX       = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 100 +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-VULCAN-MAX     = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM +
+                                          WS-DIFFICULTY-FACTOR.
+           COMPUTE WS-IS-WORM-HOLE-MAX  = WS-DIFFICULTY-FACTOR-SQD *
+                                          FUNCTION RANDOM / 10 +
+                                          WS-DIFFICULTY-FACTOR.
 
        1050-END.
            EXIT.
@@ -1043,11 +1128,23 @@
                         ADD 1 TO WS-IS-NEXUS-CTR
                      END-IF
                WHEN 11
-                     SET WS-IS-VULCAN TO TRUE
+                     IF WS-IS-VULCAN-CTR <
+                        WS-IS-VULCAN-MAX
+                        SET WS-IS-VULCAN TO TRUE
+                        ADD 1 TO WS-IS-VULCAN-CTR
+                     END-IF
                WHEN 13
-                     SET WS-IS-NOVA TO TRUE
+                     IF WS-IS-NOVA-CTR <
+                        WS-IS-NOVA-MAX
+                        SET WS-IS-NOVA TO TRUE
+                        ADD 1 TO WS-IS-NOVA-CTR
+                     END-IF
                WHEN 17
-                     SET WS-IS-STAR-SHIP TO TRUE
+                     IF WS-IS-STAR-SHIP-CTR <
+                        WS-IS-STAR-SHIP-MAX
+                        SET WS-IS-STAR-SHIP TO TRUE
+                        ADD 1 TO WS-IS-STAR-SHIP-CTR
+                     END-IF
                WHEN 20
                      IF WS-IS-Q-CTR < WS-IS-Q-MAX
                         SET WS-IS-Q TO TRUE
@@ -1056,13 +1153,29 @@
                WHEN 25
                      EVALUATE WS-SECTOR-QUAD
                          WHEN 1
-                              SET WS-IS-BORG TO TRUE
+                              IF WS-IS-BORG-CTR <
+                                 WS-IS-BORG-MAX
+                                 SET WS-IS-BORG TO TRUE
+                                 ADD 1 TO WS-IS-BORG-CTR
+                              END-IF
                          WHEN 2
-                              SET WS-IS-CARD TO TRUE
+                              IF WS-IS-CARD-CTR <
+                                 WS-IS-CARD-MAX
+                                 SET WS-IS-CARD TO TRUE
+                                 ADD 1 TO WS-IS-CARD-CTR
+                              END-IF
                          WHEN 3
-                              SET WS-IS-ENEMY-2 TO TRUE
+                              IF WS-IS-ENEMY-2-CTR <
+                                 WS-IS-ENEMY-2-MAX
+                                 SET WS-IS-ENEMY-2 TO TRUE
+                                 ADD 1 TO WS-IS-ENEMY-2-CTR
+                              END-IF
                          WHEN 4
-                              SET WS-IS-ENEMY-1 TO TRUE
+                              IF WS-IS-ENEMY-1-CTR <
+                                 WS-IS-ENEMY-1-MAX
+                                 SET WS-IS-ENEMY-1 TO TRUE
+                                 ADD 1 TO WS-IS-ENEMY-1-CTR
+                              END-IF
                      END-EVALUATE
                WHEN 33
                      EVALUATE WS-SECTOR-QUAD
@@ -1072,11 +1185,23 @@
                                  ADD 1 TO WS-IS-VGER-CTR
                               END-IF
                          WHEN 2
-                              SET WS-IS-CARD TO TRUE
+                              IF WS-IS-CARD-CTR <
+                                 WS-IS-CARD-MAX
+                                 SET WS-IS-CARD TO TRUE
+                                 ADD 1 TO WS-IS-CARD-CTR
+                              END-IF
                          WHEN 3
-                              SET WS-IS-ENEMY-1 TO TRUE
+                              IF WS-IS-ENEMY-1-CTR <
+                                 WS-IS-ENEMY-1-MAX
+                                 SET WS-IS-ENEMY-1 TO TRUE
+                                 ADD 1 TO WS-IS-ENEMY-1-CTR
+                              END-IF
                          WHEN 4
-                              SET WS-IS-BORG  TO TRUE
+                              IF WS-IS-BORG-CTR <
+                                 WS-IS-BORG-MAX
+                                 SET WS-IS-BORG TO TRUE
+                                 ADD 1 TO WS-IS-BORG-CTR
+                              END-IF
                      END-EVALUATE
                WHEN 36
                      IF WS-IS-STAR-CTR <
@@ -1085,34 +1210,86 @@
                         ADD 1 TO WS-IS-STAR-CTR
                      END-IF
                WHEN 38
-                     SET WS-IS-PLANET TO TRUE
+                     IF WS-IS-PLANET-CTR <
+                        WS-IS-PLANET-MAX
+                        SET WS-IS-PLANET TO TRUE
+                        ADD 1 TO WS-IS-PLANET-CTR
+                     END-IF
                WHEN 40
-                     SET WS-IS-STAR-BASE TO TRUE
+                     IF WS-IS-STAR-BASE-CTR <
+                        WS-IS-STAR-BASE-MAX
+                        SET WS-IS-STAR-BASE TO TRUE
+                        ADD 1 TO WS-IS-STAR-BASE-CTR
+                     END-IF
                WHEN 42
-                     SET WS-IS-ANOMALLY TO TRUE
+                     IF WS-IS-ANOMALLY-CTR <
+                        WS-IS-ANOMALLY-MAX
+                        SET WS-IS-ANOMALLY TO TRUE
+                        ADD 1 TO WS-IS-ANOMALLY-CTR
+                     END-IF
                WHEN 44
-                     SET WS-IS-SUPER-NOVA TO TRUE
+                     IF WS-IS-SUPER-NOVA-CTR <
+                        WS-IS-SUPER-NOVA-MAX
+                        SET WS-IS-SUPER-NOVA TO TRUE
+                        ADD 1 TO WS-IS-SUPER-NOVA-CTR
+                     END-IF
                WHEN 46
-                     SET WS-IS-WORM-HOLE TO TRUE
+                     IF WS-IS-WORM-HOLE-CTR <
+                        WS-IS-WORM-HOLE-MAX
+                        SET WS-IS-WORM-HOLE TO TRUE
+                        ADD 1 TO WS-IS-WORM-HOLE-CTR
+                     END-IF
                WHEN 48
-                     SET WS-IS-UNKNOWN TO TRUE
+                     IF WS-IS-UNKNOWN-CTR <
+                        WS-IS-UNKNOWN-MAX
+                        SET WS-IS-UNKNOWN TO TRUE
+                        ADD 1 TO WS-IS-UNKNOWN-CTR
+                     END-IF
                WHEN 49
-                     SET WS-IS-FERI TO TRUE
+                     IF WS-IS-FERI-CTR <
+                        WS-IS-FERI-MAX
+                        SET WS-IS-FERI TO TRUE
+                        ADD 1 TO WS-IS-FERI-CTR
+                     END-IF
                WHEN 50
-                     SET WS-IS-MOON TO TRUE
+                     IF WS-IS-MOON-CTR <
+                        WS-IS-MOON-MAX
+                        SET WS-IS-MOON TO TRUE
+                        ADD 1 TO WS-IS-MOON-CTR
+                     END-IF
                WHEN 54
                      EVALUATE WS-SECTOR-QUAD
                          WHEN 1
-                              SET WS-IS-ROMULAN TO TRUE
+                              IF WS-IS-ROMULAN-CTR <
+                                 WS-IS-ROMULAN-MAX
+                                 SET WS-IS-ROMULAN TO TRUE
+                                 ADD 1 TO WS-IS-ROMULAN-CTR
+                              END-IF
                          WHEN 2
-                              SET WS-IS-ENEMY-1 TO TRUE
+                              IF WS-IS-ENEMY-1-CTR <
+                                 WS-IS-ENEMY-1-MAX
+                                 SET WS-IS-ENEMY-1 TO TRUE
+                                 ADD 1 TO WS-IS-ENEMY-1-CTR
+                              END-IF
                          WHEN 3
-                              SET WS-IS-ENEMY-2 TO TRUE
+                              IF WS-IS-ENEMY-2-CTR <
+                                 WS-IS-ENEMY-2-MAX
+                                 SET WS-IS-ENEMY-2 TO TRUE
+                                 ADD 1 TO WS-IS-ENEMY-2-CTR
+                              END-IF
                          WHEN 4
-                              SET WS-IS-BORG  TO TRUE
+                              IF WS-IS-BORG-CTR <
+                                 WS-IS-BORG-MAX
+                                 SET WS-IS-BORG TO TRUE
+                                 ADD 1 TO WS-IS-BORG-CTR
+                              END-IF
                      END-EVALUATE
                WHEN 56
-                     SET WS-IS-COMET TO TRUE
+                     IF WS-IS-COMET-CTR <
+                        WS-IS-COMET-MAX
+                        SET WS-IS-COMET TO TRUE
+                        ADD 1 TO WS-IS-COMET-CTR
+                     END-IF
                WHEN 60
                      IF WS-IS-BLACK-HOLE-CTR <
                         WS-IS-BLACK-HOLE-MAX
