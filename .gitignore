@@ -1,0 +1,40 @@
+# Prerequisites
+
+# Object files
+*.obj
+
+# Linker output
+
+# Precompiled Headers
+
+# Libraries
+*.lib
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+
+# Executables
+*.exe
+
+# Debug files
+
+# Kernel Module Compile Results
+
+# COBOL Configuration
+*.conf
+*.cfg
+*.words
+
+# Intermediate
+*.asm
+*.c
+*.h
+*.i
+*.log
+*.lst
+*.txt
+
+# Other files
+ChangeLog
+Makefile.*
+*.def
