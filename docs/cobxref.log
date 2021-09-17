@@ -1,0 +1,20 @@
+Xref v2.02.03
+Copyright (c) 1967-2021 Vincent Bryan Coen
+ 
+Parameters are
+ 
+ 1: Source File name (Mandatory)
+ 2: -FREE  Source format otherwise it is set to FIXED
+ 3: -R     Do NOT print out source code prior to xref listings
+ 4: -L     Reports in lowercase otherwise in upper
+ 5: -DR    Display All reserved words & stop
+ 6: -VT    Do not display messages when updating any reserved word tables
+ 7: -E     Create compressed source file (same as cobc -E)
+ 8: -AX    Produce Xrefs at end of all program listings
+           Not yet implemented - Depends on requests for it
+ 9: -G     Produce only group xref: Comp. MF
+10: -TEST  Produces testing info (for programmers use only)
+           also produces free format src in source filename.src
+11: -V     Verbose output - for testing only
+12: -H     Display this help message
+   --H     as -H

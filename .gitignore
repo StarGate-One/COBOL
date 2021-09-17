@@ -30,7 +30,7 @@
 *.c
 *.h
 *.i
-*.log
+*.logs
 *.lst
 *.txt
 
