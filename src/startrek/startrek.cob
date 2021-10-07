@@ -695,7 +695,7 @@
              END-PERFORM
 
       D      DISPLAY WS-QUAD-CTR "WS-ITEM-COUNTER-> "
-                     WS-ITEM-COUNTER
+      D              WS-ITEM-COUNTER
 
       D      DISPLAY WS-QUAD-CTR
       D              "WS-IS-ANOMALLY-CTR->"   WS-IS-ANOMALLY-CTR
