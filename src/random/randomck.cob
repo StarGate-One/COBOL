@@ -4,7 +4,8 @@
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01  result-tally.
-           03  result-tallies                  PIC 9(7) OCCURS 6 TIMES
+           03  result-tallies            PIC 9(7) OCCURS 6 TIMES
+      *     03  result-tallies            PIC 9(7) OCCURS 1000000 TIMES
                                                   INDEXED BY tally-idx.
 
        01  random-number                       PIC 9 COMP.
@@ -13,7 +14,8 @@
            MOVE FUNCTION RANDOM(FUNCTION SECONDS-PAST-MIDNIGHT)
              TO random-number
 
-           PERFORM 1000000 TIMES
+      *     PERFORM 1000000 TIMES
+           PERFORM 6 TIMES
               COMPUTE random-number = FUNCTION RANDOM * 6
               ADD 1 TO random-number
               ADD 1 TO result-tallies (random-number)
